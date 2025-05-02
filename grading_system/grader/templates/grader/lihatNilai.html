@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Lihat Nilai</title> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        <style>
+            html, html a {
+        font-family: 'Segoe UI Semibold';
+        src: local('Segoe UI Semibold');
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+            .navbar{
+        margin-right:80px;
+        margin-left:80px;
+        margin-top:10px;
+            }
+            .auth1{
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 20px;
+      width: 100%;
+    }
+    .auth2{
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 20px;
+      width: 15%;
+      margin-top: 100px;
+      margin-left: 80px;
+    }
+    .table {
+    border-radius: 5px;
+    width: 85%;
+    margin: 0px auto;
+    float: none;
+    }
+        </style>
+    </head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg rounded-pill">
+    <a class="navbar-brand" href="/">Grader</a>
+    <a href="{% url 'home' %}"><button class="auth1 btn btn-primary">Home</button></a>
+    </nav>
+    <br><br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Kode Mata Pelajaran</th>
+                <th scope="col">Nama Mata Pelajaran</th>
+                <th scope="col">Nilai</th>
+                <th scope="col">Index</th>
+            </tr>
+            </thead>
+            <tbody>       
+            {% for nilais in nilai %}  
+                <td>{{ nilais.kode_mapel }}</td> 
+                <td>{{ nilais.nama_mapel }}</td>
+                <td>{{ nilais.nilai }}</td>
+                <td>{{ nilais.index }}</td>
+            </tr>
+                {% endfor %}       
+              <tr>
+                <td colspan="6" class="cs-text-center cs-empty-table">Ini adalah nilai milik anda</td> 
+                <td><a class="btn btn-primary" href="{% url 'datavis' id %}">Lihat data</a></td> 
+              </tr>
+            </tbody>
+        </table>   
+        
+    </div>
+</body>
+</html>
